@@ -1,4 +1,11 @@
 <router-outlet></router-outlet>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput placeholder="Example..." (keyup)="applyFilter($event)">
+</mat-form-field>
+
+
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
