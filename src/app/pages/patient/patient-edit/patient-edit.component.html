@@ -8,21 +8,35 @@
   </div>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="First name" required formControlName="firstName">
+    <small *ngIf="f['firstName'].errors?.['required'] && f['firstName'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['firstName'].errors?.['minlength'] f['firstName'].touched" class="invalid" >Min 3 characters</small>
+
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="Lastname" required formControlName="lastName">
+    <small *ngIf="f['lastName'].errors?.['required'] && f['lastName'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['lastName'].errors?.['minlength'] f['lastName'].touched" class="invalid" >Min 3 characters</small>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="dni" required formControlName="dni">
+    <small *ngIf="f['dni'].errors?.['required'] && f['dni'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['dni'].errors?.['minlength'] f['dni'].touched" class="invalid" >must be 8 characters</small>
+    <small *ngIf="f['dni'].errors?.['maxlenth'] f['dni'].touched" class="invalid" >must be 8 characters</small>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="address" required formControlName="address">
+    <small *ngIf="f['address'].errors?.['required'] && f['address'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['address'].errors?.['maxlength'] f['address'].touched" class="invalid" >Max 150 characters</small>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="phone" required formControlName="phone">
+    <small *ngIf="f['phone'].errors?.['required'] && f['phone'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['phone'].errors?.['maxlength'] f['phone'].touched" class="invalid" >Max 10 characters</small>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput  placeholder="email" required formControlName="email">
+    <small *ngIf="f['email'].errors?.['required'] && f['email'].touched" class="invalid" >Is required</small>
+    <small *ngIf="f['email'].errors?.['email'] f['email'].touched" class="invalid" >set a valid email</small>
   </mat-form-field>
 
   <button mat-raised-button color="primary">

@@ -1,0 +1,31 @@
+<mat-dialog-content>
+  <mat-toolbar>
+    <span>Medic Dialog</span>
+  </mat-toolbar>
+
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput  placeholder="First Name" [(ngModel)]="medic.primaryName" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  placeholder="LastName" [(ngModel)]="medic.surname" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  placeholder="CMP" [(ngModel)]="medic.cmpMedic" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  placeholder="Photo" [(ngModel)]="medic.photo" >
+    </mat-form-field>
+
+    <img mat-card-image  [src]="medic.photo" alt="Doctor image" *ngIf="medic.photo">
+
+
+  </div>
+  <button mat-raised-button color="primary" (click)="operate()">Done</button>
+  <button mat-raised-button color="accent" (click)="close()">Close</button>
+
+</mat-dialog-content>

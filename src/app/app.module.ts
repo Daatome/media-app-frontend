@@ -9,10 +9,12 @@ import { MedicComponent } from './pages/medic/medic.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { PatientEditComponent } from './pages/patient/patient-edit/patient-edit.component';
+import { MedicDialogComponent } from './pages/medic/medic-dialog/medic-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    //MedicDialogComponent,
     //PatientEditComponent,
     //PatientComponent,
     //MedicComponent

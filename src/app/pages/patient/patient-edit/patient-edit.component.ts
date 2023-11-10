@@ -1,5 +1,6 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { switchMap } from 'rxjs';
 import { MaterialModule } from 'src/app/material/material.module';
@@ -11,7 +12,7 @@ import { PatientService } from 'src/app/service/patient.service';
   standalone: true,
   templateUrl: './patient-edit.component.html',
   styleUrls: ['./patient-edit.component.css'],
-  imports: [MaterialModule, ReactiveFormsModule,RouterLink]
+  imports: [MaterialModule, ReactiveFormsModule,RouterLink, NgIf]
 })
 export class PatientEditComponent implements OnInit {
 
@@ -29,12 +30,12 @@ export class PatientEditComponent implements OnInit {
   ngOnInit(): void {
     this.form= new FormGroup({
       idPatient: new FormControl(0),
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      dni: new FormControl(''),
-      address: new FormControl(''),
-      phone: new FormControl(''),
-      email: new FormControl(''),
+      firstName: new FormControl('',[Validators.minLength(3), Validators.required]),
+      lastName: new FormControl('',[Validators.minLength(3), Validators.required]),
+      dni: new FormControl('',[Validators.minLength(8),Validators.maxLength(8), Validators.required]),
+      address: new FormControl('',[Validators.maxLength(150), Validators.required]),
+      phone: new FormControl('',[Validators.maxLength(10), Validators.required]),
+      email: new FormControl('',[Validators.required, Validators.email]),
     })
     this.route.params.subscribe(data=>{
       this.id= data['id'];//we defined the name in the router module
@@ -94,4 +95,8 @@ export class PatientEditComponent implements OnInit {
 
   }
 
+  get f(){
+    return this.form.controls;
+
+  }
 }
