@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { GenericService } from './generic.service';
-import {Medic} from './../model/medic';
-import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 import { Subject } from 'rxjs';
+import { Exam } from '../model/exam';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MedicService extends GenericService<Medic> {
+export class ExamService extends GenericService<Exam>{
 
 
-  medicChange: Subject<Medic[]>= new Subject<Medic[]>();
+  examChange: Subject<Exam[]>= new Subject<Exam[]>();
   messageChange: Subject<string>= new Subject<string>();
 
   constructor(protected override http: HttpClient){
 
-    super(http, `${environment.HOST}/medics`);
+    super(http, `${environment.HOST}/exams`);
 
   }
 
-  setMedicChange(data: Medic[]){
-    this.medicChange.next(data);
+  setExamChange(data: Exam[]){
+    this.examChange.next(data);
   }
-  getMedicChange(){
-    return this.medicChange.asObservable();
+  getExamChange(){
+    return this.examChange.asObservable();
   }
 
   setMessageChange(message:string){

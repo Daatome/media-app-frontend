@@ -1,0 +1,20 @@
+<mat-dialog-content>
+  <mat-toolbar>
+    <span>Exam information</span>
+  </mat-toolbar>
+
+  <div class="example-container">
+
+    <mat-form-field>
+      <input matInput  placeholder="name of the exam" [(ngModel)]="exam.nameExam" >
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  placeholder="LastName" [(ngModel)]="exam.descriptionExam" >
+    </mat-form-field>
+
+  </div>
+  <button mat-raised-button color="primary" (click)="operate()">Done</button>
+  <button mat-raised-button color="accent" (click)="close()">Close</button>
+
+</mat-dialog-content>

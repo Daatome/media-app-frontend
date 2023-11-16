@@ -22,6 +22,7 @@ export class MedicComponent implements OnInit {
 
   dataSource : MatTableDataSource<Medic>;
   displayedColumns: string[] = ['id', 'primaryName', 'surname', 'cmpMedic','actions'];
+
   @ViewChild(MatPaginator) paginator : MatPaginator;
   @ViewChild(MatSort) sort : MatSort;
 
